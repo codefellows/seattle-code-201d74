@@ -1,92 +1,41 @@
 # Code 201: Foundations of Software Development
 
-Welcome to the Code 201 Facilitator Guide.
+Welcome to Code 201! This is a class that builds on your foundational knowledge of HTML, CSS, JavaScript, git, and general web development, to prepare you for the deep dive of any Code 301 class.
 
-## Overview
+## Introduction
 
-Build a strong software development foundation and learn how to use HTML, CSS, JavaScript, and various libraries to create fully-functional web apps.
+The general course schedule is:
 
-This course guides students toward developing a well-rounded foundation of skills necessary for modern web development. These skills include HTML, CSS, and JavaScript coding; utilizing Git workflow processes, project organization, designing with wireframing and employing introductory Agile development methods.
+| Full Time | Part Time    | Topic                         |
+| --------- | ------------ | ----------------------------- |
+| Week 1    | Week 1 and 2 | Basic HTML, CSS, & Javascript |
+| Week 2    | Week 3 and 4 | Working with the DOM          |
+| Week 3    | Week 5 and 6 | Working with Libraries        |
+| Week 4    | Week 7 and 8 | Project Week                  |
 
-The course totals 160 hours, including lectures, lab, coworking, and collaborative projects.
+## Lecture Notes from class
 
-## Outcomes
+Lecture Notes will be placed in each class' lecture-code subdirectory as a markdown file after they are presented.  
 
-- Define the structure of a web page utilizing the semantic hierarchical structural conventions of HTML5.
-- Apply CSS and HTML to implement page layout styles including grid, fluid, and responsive techniques; and to style content with color, typography, and images.
-- Utilize Javascript to make web projects interactive, such that user input is stored and processed to create updated and personalized content when a user interacts with a page.
-- Write JavaScript that leverages the fundamentals of Computer Science, the Object-Oriented Programming paradigm, basic data types, data structures, and basic algorithms, so that the code is efficient, error-free, and matches commonly accepted standards and practices of syntax and style, as measured by the code’s functionality and ability to pass a code linter.
-- Utilize industry-standard version control tools and workflows, including Git and GitHub, to write functional, properly styled code and to work efficiently and harmoniously in professional environments.
-- Be prepared for a Code 301 course.
+## Assignments
 
-## Prerequisites
+Lab-time code assignments follow each class time. You can find these assignments in the subdirectories of each class folder. Assignment content will very from day to day, depending on the topic. Some of the lab assignments will be pair programming assignments.
 
-- Required: Familiarity with basic algebra concepts.
-- Code 101: Explore Software Development: If you are completely new to coding, complete Code 101 to build your first website using HTML and CSS and to find out if a career in software development is right for you.
-- Code 102: Intro to Software Development: Prepare for the Code 201 deep-dive with instructor-led labs introducing you to the professional tools of the trade, like git and the powerful VSCode text editor. Practice more with HTML & CSS, and learn basic JavaScript as you deploy themed websites with GitHub Pages.
+Instructions for completing and submitting the assignments can be found in the README files of the appropriate subdirectories.
 
-## Topics
+Assignments are submitted using a professional-grade git-flow. If you haven't done so already, it's time to get comfortable with the core git commands. Don't worry, we'll give you step by step help as needed.
 
-### Concepts
+## Index of Cheatsheets and Resources
 
-- HTML5 and CSS3
-- Object-Oriented Programming
-- Introductory Data Structures & Algorithms
-- Document Object Model (DOM) Manipulation & Traversal
-- Multiple Approaches to Page Layout
-- Using GitHub Repos and Sharing Code With Project Teams
-
-### Languages
-
-#### HTML
-
-- Structure
-- Text
-- Links
-- Images
-- Tables
-- HTML5
-- Forms
-- Process
-- Design
- 
-#### CSS
-
-- Color
-- Text
-- Boxes
-- Lists
-- Tables
-- Forms
-- Grid Layouts
-- Fluid Layouts
-- Animations and Transitions
-
-#### JavaScript
-
-- Loops
-- Conditions
-- Functions
-- Objects (Including Properties and Methods)
-- Object-Oriented Programming
-- Object Extension with Prototypes
-- Events, Event Listeners, and Event Handlers in Callback Functions
-- DOM Manipulation and Traversal Using "Vanilla" JavaScript without jQuery
-- Utilization of an external library such as ChartJS
-- Local Storage and JSON
-- The Basics of MVC
-
-## Environments and Tools
-
-- Unix and the Command Prompt
-- Git and GitHub
-- A Text Editor
-- Chrome Dev Tools
-
-## Stacked Modules
-
-Concepts in each of our courses are taught using stacked modules, where a new concept is introduced in each class session, building upon what came before it. This is a challenging style that requires persistence, practice, and collaboration, but allows more concepts to be introduced over the length of the course. This method helps students learn and retain more information in a short period of time.
-
-## Homework Policy
-
-In order to pass the class, students must attain at least 90% of available points.
+- [new project setup](https://codefellows.github.io/code-201-guide/curriculum/class-02/project-setup){:target="_blank"}
+- [css everything cheatsheet](https://overapi.com/css){:target="_blank"}
+- [collection of cheatsheets by overApi](https://overapi.com/){:target="_blank"}
+- [boolean practice](https://codefellows.github.io/code-201-guide/curriculum/class-03/facilitator/boolean-practice){:target="_blank"}
+- [javascript structure](https://codefellows.github.io/code-201-guide/curriculum/class-09/facilitator/javascript-practice){:target="_blank"}
+- [post 201 study guide](https://codefellows.github.io/code-201-guide/curriculum/class-15/facilitator/post-201-study-guide){:target="_blank"}
+- [git and github basics guide](https://codefellows.github.io/code-201-guide/curriculum/class-02/git-and-github-basics-guide){:target="_blank"}
+- [css2 cheat sheat](https://codefellows.github.io/code-201-guide/curriculum/cheat-sheets/css2-cheat-sheet){:target="_blank"}
+- [css3 cheat sheat](https://codefellows.github.io/code-201-guide/curriculum/cheat-sheets/css3-cheat-sheet){:target="_blank"}
+- [html5 reference tags](https://codefellows.github.io/code-201-guide/curriculum/cheat-sheets/htm-5-reference-tags){:target="_blank"}
+- [html5 sectioning flow chart](https://codefellows.github.io/code-201-guide/curriculum/cheat-sheets/html5-sectioning-flowchart){:target="_blank"}
+- [handling merge conflicts](https://codefellows.github.io/code-201-guide/curriculum/class-15/handling-merge-conflicts){:target="_blank"}
