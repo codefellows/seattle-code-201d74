@@ -85,13 +85,13 @@ What kind of content should be in the README?
 - Information on the license
 - Acknowledgements, etc.
 
-#### [README-template](README-template.md){:target="_blank"} -  The default 201 README template
+#### [README-template](configs/README-template.md) -  The default 201 README template
 
 Also take a look at the following suggested structures. Note the similarities and differences; there is no absolute right/wrong approach. Consider the information that would be helpful to users of your project, and then set one up that is appropriate to your project:
 
-* [README](https://gist.github.com/jxson/1784669){:target="_blank"} by GitHub user [jxson](https://gist.github.com/jxson){:target="_blank"}
-* [Stack Overflow Q/A on "How to write a good README"](https://gist.github.com/kipyegonmark/89fe62493f22d93705d917d634d8eeb2){:target="_blank"} (reprint)
-* [A Beginner's Guide to Writing a Kickass README](https://medium.com/@meakaakka/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3){:target="_blank"}
+* [README](https://gist.github.com/jxson/1784669) by GitHub user [jxson](https://gist.github.com/jxson)
+* [Stack Overflow Q/A on "How to write a good README"](https://gist.github.com/kipyegonmark/89fe62493f22d93705d917d634d8eeb2)(reprint)
+* [A Beginner's Guide to Writing a Kickass README](https://medium.com/@meakaakka/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3)
 
 Lastly, remember to keep your README up to date! Don't just create it and then neglect it!
 
