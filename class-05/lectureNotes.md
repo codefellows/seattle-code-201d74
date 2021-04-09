@@ -22,3 +22,11 @@ Do your work and save your files then a-c-p to that branch name
 - `git add allMyFiles.js`
 - `git commit -m "adds all my files"`
 - `git push origin branchName`
+
+Go to github.com
+- accept or create a pull request for the branch
+- merge the branch
+
+Update your local repo with the current version of main
+- `git pull origin main`
+
