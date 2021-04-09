@@ -1,2 +1,75 @@
 
 
+body {
+  background-color: lightgray;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 1.75em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+p {
+  font-size: 1em;
+  line-height: 1.2em;
+}
+
+img {
+  border-radius: 25px;
+  width: 300px;
+}
+
+ul li {
+  font-size: 1em;
+  line-height: 1.2em;
+}
+
+ol li {
+  font-size: 1em;
+  line-height: 1.5em;
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+
+header {
+  background-color: gray;
+  height: 60px;
+  padding: 10px;
+}
+
+section {
+  margin: 20px;
+}
+
+article img{
+  width: 100%
+}
+
+/* #listSection {
+  display: flex;
+  justify-content: space-evenly;
+} */
+ article {
+  float: left;
+  width: 30%
+}
+
+#one, #two {
+  padding-right: 5%;
+
+
+
+} 
+
+section:nth-child(3) {
+  clear: both;
+  height: 500px;
+} 
