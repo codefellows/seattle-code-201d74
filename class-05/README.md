@@ -22,3 +22,6 @@ Today's lab is a 'one-off' lab, in that it is not directly connected to your wee
 You'll be working individually today. The GitHub workflow today is different, too, and is designed to give you a lot of practice working with branches, which is the last major piece of Git for us to cover. We need to spend a bit of time with it, and get practice with it, so that you understand what you are doing.
 
 The concepts covered in today's lab (functions that receive input and return output) will be VERY VERY helpful for you in our next big project. Ideally you will continue to work on little problems like this for additional practice.
+
+[Link to the starter code](https://github.com/codefellows/seattle-code-201d74-lab-5) 
+
