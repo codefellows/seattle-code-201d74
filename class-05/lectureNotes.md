@@ -30,3 +30,13 @@ Go to github.com
 Update your local repo with the current version of main
 - `git pull origin main`
 
+Optional
+- delete branch locally
+  - `git branch -d localBranchName`
+- delete branch remotely
+  - `git push origin --delete remoteBranchName`
+
+
+link for calendly
+https://calendly.com/sara_russert/student-1-1
+
