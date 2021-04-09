@@ -13,3 +13,12 @@ How to get stuff to go where I want it to!
 - positioning
 - float
 - flexbox
+
+
+To create a new branch:
+- `git checkout -b branchName`
+
+Do your work and save your files then a-c-p to that branch name
+- `git add allMyFiles.js`
+- `git commit -m "adds all my files"`
+- `git push origin branchName`
