@@ -1,169 +1,133 @@
-'use strict';
+//TDD 
+// Make objects for each image - name, image, clicks - seen? (check)
+// constructor function ^^ (check)
+// create count variable (check)
+// counting guesses ONLY allowing a certain number and then you can't guess any more
+// render two images - must be two different images
+// - renders
+// - pick goats
+// you can click - listener
+// when you click it counts AND renders new images
+// stretch goal - make sure images don't repeat each round 
+// wipe out data of results to start over - render the results
+// Get global variables
 
-/*
-  Practice domain modeling by planning out an app w that allows users to choose their favorite between two goats
-  Let students participate by suggesting the steps needed to make the app run
-  Continue until students have provided enough detail that they feel confident they could build the app themselves
-  App Flow:
-  - Welcome and instructions
-  - Randomly put 2 goats on the screen
-    - Random number generator
-    - a function to display goats
-  - A user clicks on a goat
-    - event listener needs to be on the image to fire the event handler
-    - the event handler fires
-      - ? check if total clicks is 25 ?
-        - stop letting the user click
-        - display the clicks
-      -? If not ?
-        - track which goat was clicked on
-        - update clicke images count of how many times it has been clicked on
-        - update both images'count of times shown
-        - Randomly Pick 2 goats, run the same code that put them on the screen to begin with
-  HTML
-    - have a left and right image container in the html
-    - Give them id's so we can select them
-    - let the user know what they are supposed to do
-      - instructions
-  More javascript details
-  We need Objects with all the image properties
-  const Image = function ()
-  {
-    name : 'cool goat',
-    clicks: 0,
-    times shown: 0,
-    url : 'cool-goat.jpg'
-  }
-  We need an Array to hold all image Objects
-  function to randomly pick an image{
-    Prevent last picked goats from being picked
-      - STRETCH pick all goats evenly as possible
-    Math.floor  Math.random() * array.length()
-    make sure left and right image are unique
-  }
-  click on an image, targetted by id
-  add event listener('click', function(){
-    keep track of the image that is clicked
-    prevent all currently displayed images from being re clicked {
-    }
-  })
-  function to display all the clicks at the end () {
-    generate a table or list
-    populate the data - adds to the inner html of an existing element (table or list)
-    divide object's times clicked by total shown
-  }
-*/
-
-// Globals
-const goatImageSectionTag = document.getElementById('all_goats');
-const leftGoatImageTag = document.getElementById('left_goat_img');
-const rightGoatImageTag = document.getElementById('right_goat_img');
-
-
+// Global Variables
+const results = document.getElementById('goat-clicks');
+const bothGoats = document.getElementById('all_goats')
+const rightGoatImg = document.getElementById('right_goat_img');
+const leftGoatImg = document.getElementById('left_goat_img');
+const leftGoatPElem = document.getElementById('left_goat_p');
+const rightGoatPElem = document.getElementById('right_goat_p');
 
 let totalClicks = 0;
 
-// Variables to store the goats already on the page
-let leftGoatOnThePage = null;
-let rightGoatOnThePage = null;
+let leftGoat = null;
+let rightGoat = null;
 
-const GoatPicture = function (name, imageSrc) {
+const GoatPictures = function(name, imagePath) {
   this.name = name;
+  this.imagePath = imagePath;
   this.clicks = 0;
   this.timesShown = 0;
-  this.url = imageSrc;
 
-  // the allImages array is a property of the GoatPicture constructor
-  GoatPicture.allImages.push(this);
-};
+  GoatPictures.allImages.push(this);
+}
+// const goatArray = [];
+GoatPictures.allImages = [];
+// adding a property to the GoatPictures object that is an array
 
-GoatPicture.allImages = [];
+// write a function that renders goats
+const renderGoats = function() {
+  // use the right and left global variables for the image and the p tag to stick the goats on the page
+  leftGoatImg.src = leftGoat.imagePath;
+  rightGoatImg.src  = rightGoat.imagePath;
+  rightGoatPElem.textContent = rightGoat.name;
+  leftGoatPElem.textContent = leftGoat.name;
+}
 
-/*
-Prevent last picked goats from being picked
-      - STRETCH pick all goats evenly as possible
-    Math.floor  Math.random() * array.length()
-    make sure left and right image are unique
-    */
+// write a function that pickss the two different goats
+function goatPicker() {
+   // write a function that picks one goat at random, and then another, making sure the first and the second goat are not the same
+   const leftIndex = Math.floor(Math.random() * GoatPictures.allImages.length);
+   console.log(GoatPictures.allImages);
+   console.log(leftIndex);
+   let rightIndex = Math.floor(Math.random() * GoatPictures.allImages.length);
+   console.log(GoatPictures.allImages);
+   // a different index number than the first one
+   while (rightIndex === leftIndex) {
+    rightIndex = Math.floor(Math.random() * GoatPictures.allImages.length);
+    console.log(rightIndex);
+   }
+  //  GoatPictures.allImages[leftIndex]
+  leftGoat = GoatPictures.allImages[leftIndex];
+  rightGoat = GoatPictures.allImages[rightIndex];
+}
 
-const renderNewGoats = function (leftIndex, rightIndex){
-  leftGoatImageTag.src = GoatPicture.allImages[leftIndex].url;
-  rightGoatImageTag.src = GoatPicture.allImages[rightIndex].url;
-};
+function displayVoteCount() {
+  // remove current input and replace
+  results.innerHTML = ' ';
+  let h2Elem = document.createElement('h2')
+  h2Elem.textContent = 'Goat Likes'
+  results.appendChild(h2Elem);
+  for (let goat of GoatPictures.allImages) {
+    const liElem = document.createElement('li');
+    liElem.textContent = `${goat.name}: ${goat.clicks}`;
+    results.appendChild(liElem);
+  }
+  // for (let i = 0; i < GoatPictures.allImages.length; i++) {
+  //   const liElem = document.createElement('li');
+  //   let goat = GoatPictures.allImages[i];
+  //   liElem.textContent = `${goat.name}: ${goat.clicks}`;
+  //   results.appendChild(liElem);
+  // }
+}
 
-const pickNewGoats = function(){
-  const leftIndex = Math.floor(Math.random() * GoatPicture.allImages.length);
-  let rightIndex;
-  do {
-    rightIndex = Math.floor(Math.random() * GoatPicture.allImages.length);
-  } while (rightIndex === leftIndex);
-  console.log(GoatPicture.allImages[leftIndex].name, GoatPicture.allImages[rightIndex].name);
-
-  leftGoatOnThePage = GoatPicture.allImages[leftIndex];
-  rightGoatOnThePage = GoatPicture.allImages[rightIndex];
-
-  renderNewGoats(leftIndex, rightIndex);
-};
-
-const handleClickOnGoat = function(event){
-  console.log('im still alive');
-  // if they can still click, do clicky things
-  if(totalClicks < 5){
-
-    const thingWeClickedOn = event.target;
-    const id = thingWeClickedOn.id;
-
-    if(id === 'left_goat_img' || id === 'right_goat_img'){
-      //track the goats
-      // increment the goat image in the left_goat_image slot's clicks
-      // if goat is the left goat, increment the left goat)
-      if(id === 'left_goat_img'){
-        leftGoatOnThePage.clicks++;
+// handle the result of the click
+function handleClick(event) {
+  console.log(event.target);
+  const clickedTarget = event.target;
+  const id = clickedTarget.id;
+  // we need a way to compare the left goat and right goat to what we clicked on to make sure we count the vote 
+  // if they vote 10 times or less do this 
+  if (totalClicks < 10) {
+    if (id === 'left_goat_img' || id === 'right_goat_img') {
+      // increment votes total
+      // increment the particular goat we clicked on votes
+      if (id === 'left_goat_img') {
+        leftGoat.clicks++;
+      } else {
+        rightGoat.clicks++;
       }
-
-      if(id === 'right_goat_img'){
-        rightGoatOnThePage.clicks++;
-      }
-
-      leftGoatOnThePage.timesShown++;
-      rightGoatOnThePage.timesShown++;
-
-      //after we update the old, pick new pictures
-      pickNewGoats();
+      totalClicks++;
+      leftGoat.timesShown++;
+      rightGoat.timesShown++;
+      goatPicker();
+      renderGoats();
     }
-    console.log(event.target.id);
   }
-  // increment amount of clicks
-  totalClicks++;
-  //when they reach total max clicks, remove the clicky function
-  if(totalClicks === 5){
-    goatImageSectionTag.removeEventListener('click', handleClickOnGoat);
-    console.log('you picked 5 goats, thanks!');
-
-    //TODO: display the clicks to the page
+  if (totalClicks === 10) {
+    bothGoats.removeEventListener('click', handleClick);
+    // render our results
+    displayVoteCount();
   }
-};
+  // if they vote more than ten times turn it off!
+}
 
 
+new GoatPictures('Cruising Goat', './images/cruisin-goat.jpg');
+new GoatPictures('Float Your Goat', './images/float-your-goat.jpg');
+new GoatPictures('Goat Away', './images/goat-away.jpg')
+new GoatPictures('Goat Out of Hand', './images/goat-out-of-hand.jpg')
+new GoatPictures('Kissing Goat', './images/kissing-goat.jpg');
+new GoatPictures('Sassy Goat', './images/sassy-goat.jpg');
+new GoatPictures('Sweater Goat', './images/sweater-goat.jpg');
+new GoatPictures('Smiling Goat', './images/smiling-goat.jpg');
 
-// leftGoatImageTag.addEventListener('click', handleClickOnGoat);
-// rightGoatImageTag.addEventListener('click', handleClickOnGoat);
+// add a listener
+bothGoats.addEventListener('click', handleClick)
 
-goatImageSectionTag.addEventListener('click', handleClickOnGoat);
-// goatImageSectionTag.removeEventListener('click', handleClickOnGoat);
-
-
-// Instantiate my image objects
-
-new GoatPicture('Cruising Goat', './images/cruisin-goat.jpg');
-
-new GoatPicture('Float Your Goat', './images/float-your-goat.jpg');
-new GoatPicture('Kissing Goat', './images/kissing-goat.jpg');
-new GoatPicture('Sweater Goat', './images/sweater-goat.jpg');
-
-//Track the default goats;
-
-leftGoatOnThePage = GoatPicture.allImages[3];
-rightGoatOnThePage = GoatPicture.allImages[0];
-
-pickNewGoats();
+goatPicker();
+console.log('left goat', leftGoat);
+console.log('Right Goat', rightGoat);
+renderGoats();
