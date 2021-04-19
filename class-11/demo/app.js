@@ -131,3 +131,5 @@ goatPicker();
 console.log('left goat', leftGoat);
 console.log('Right Goat', rightGoat);
 renderGoats();
+
+
