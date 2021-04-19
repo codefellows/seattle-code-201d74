@@ -1,0 +1,41 @@
+main * {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin: 5px;
+}
+
+/* nav {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin: 5px;
+}
+
+aside {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin: 5px;
+}
+
+.large-article {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin: 5px;
+}
+
+.small-article {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin: 5px;
+}
+
+div {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin: 5px;
+} */
