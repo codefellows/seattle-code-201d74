@@ -17,6 +17,7 @@
 
 // Global Variables
 const results = document.getElementById('goat-clicks');
+console.log(results)
 const bothGoats = document.getElementById('all_goats')
 const rightGoatImg = document.getElementById('right_goat_img');
 const leftGoatImg = document.getElementById('left_goat_img');
@@ -53,6 +54,25 @@ const renderGoats = function() {
 function goatPicker() {
    // write a function that picks one goat at random, and then another, making sure the first and the second goat are not the same
    // update this code to make sure we don't end up with previously chosen goats
+    // write a function that picks one goat at random, and then another, making sure the first and the second goat are not the same
+  const previousGoats = []; //[null, null]
+  previousGoats.push(leftGoat); //null
+  previousGoats.push(rightGoat); //null
+  // choose my left goat and make sure it isn't the same as the previous goats
+  // Array.includes()
+  while(previousGoats.includes(leftGoat)) {
+    let leftIndex = Math.floor(Math.random() * GoatPictures.allImages.length); //2
+    leftGoat = GoatPictures.allImages[leftIndex]; // sassy
+  }
+  // add our NEW left goat to the previous goats array
+  previousGoats.push(leftGoat); // [null, null, sassy]
+  while(previousGoats.includes(rightGoat)) { // null
+    let rightIndex = Math.floor(Math.random() * GoatPictures.allImages.length);
+    rightGoat = GoatPictures.allImages[rightIndex]; //crusin
+  }
+  
+  // good to go!
+
 }
 
 function displayVoteCount() {
@@ -75,6 +95,67 @@ function displayVoteCount() {
 }
 
 //Make a goat chart
+function renderChart() {
+  // get data set for labels
+  let labelData = [];
+  for (let i = 0; i < GoatPictures.allImages.length; i++) {
+    let goat = GoatPictures.allImages[i];
+    labelData.push(goat.name);
+  }
+  // get data set for votes
+  let voteData = [];
+  for (let goat of GoatPictures.allImages) {
+    voteData.push(goat.clicks);
+  }
+
+  console.log(labelData);
+  console.log(voteData);
+
+  var ctx = document.getElementById('goatChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: labelData,
+        datasets: [{
+            label: '# of Votes',
+            data: voteData,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+  // for (let i in GoatPictures.allImages) {
+
+  // }
+}
+
 
 // handle the result of the click
 function handleClick(event) {
@@ -104,6 +185,7 @@ function handleClick(event) {
     // render our results
     displayVoteCount();
     // add chart
+    renderChart();
   }
   // if they vote more than ten times turn it off!
 }
