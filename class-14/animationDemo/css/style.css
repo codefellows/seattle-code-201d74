@@ -1,0 +1,163 @@
+
+header {
+  background-color: powderblue;
+  height: 100px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#title {
+  font-size: 3em;
+  font-family: 'Dancing Script', cursive;
+  transition: transform 5s;
+}
+
+#title.on{
+  transition: transform 5s;
+  /* -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3); */
+  transform: scale(2);
+}
+
+#title:hover{
+  transition: transform 5s;
+  /* -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3); */
+  transform: scale(2);
+}
+
+main {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#cat-container {
+  border: 5px dotted pink;
+  border-radius: 25px;
+  padding: 10px;
+  width: 300px;
+  height: 325px;
+  perspective: 1000px;
+}
+
+#cat {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 2s;
+  transform-style: preserve-3d;
+}
+
+#cat-container:hover #cat {
+  transform: rotateY(180deg);
+}
+
+#marie {
+  background-color: white;
+  position: absolute;
+  border-radius: 25px;
+  backface-visibility: hidden;
+}
+
+#marie img {
+  width: 100%
+}
+
+#marie-flip {
+  background-color: grey;
+  position: absolute;
+  border-radius: 25px;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
+
+#marie-flip img {
+  width: 100%;
+}
+
+#yarn {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+#yarnImage {
+  width: 75px;
+}
+
+#yarnImage.on {
+  width: 75px;
+  animation: bounce 2s infinite linear;
+}
+
+@keyframes bounce {
+  10% {
+    width: 75px;
+  }
+  50% {
+    width: 75px;
+    transform: translateY(100px);
+  }
+  80% {
+    width: 100px;
+    transform: translateY(250px);
+  }
+  80% {
+    width: 120px;
+    transform: translateX(250px);
+  }
+}
+
+#mouse {
+  width: 300px;
+}
+
+#mouseImage {
+  width: 150px;
+}
+
+#mouseImage.on {
+  width: 150px;
+  animation: fish 10s infinite linear;
+}
+
+@keyframes fish {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+
+button {
+  background-color: grey;
+  margin: 20px;
+  width: 200px;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 15px;
+  transition: 2s;
+}
+
+button:hover {
+  transition: 2s;
+  /* background-color: pink; */
+  transform: scale(1.01);
+  border: 2px solid rgb(255, 172, 186);
+  font-size: 1.2em;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+
+/* animation: name duration timing-function delay iteration-count direction fill-mode play-state; */
