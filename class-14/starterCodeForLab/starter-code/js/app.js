@@ -1,5 +1,18 @@
 'use strict';
 
+// Product contructor.
+const Product = function(filePath, name) {
+  this.filePath = filePath;
+  this.name = name;
+  Product.allProducts.push(this);
+};
+Product.allProducts = [];
+
+const CartItem = function(product, quantity) {
+  this.product = product;
+  this.quantity = quantity;
+};
+
 // Cart constructor.
 const Cart = function(items) {
   // this.items is an array of CartItem instances.
@@ -14,25 +27,21 @@ Cart.prototype.addItem = function(product, quantity) {
 
 Cart.prototype.saveToLocalStorage = function() {
   // TODO: Fill in this instance method to save the contents of the cart to localStorage
+  const itemStringify= JSON.stringify(this.items)
+  localStorage.setItem('cartitem', itemStringify)
 };
+
+
 
 Cart.prototype.removeItem = function(item) {
   // TODO: Fill in this instance method to remove one item from the cart.
   // Note: You will have to decide what kind of parameter to pass in here!
+  for (let i = 0; i < Cart.items.length; i++){
+    if(item == Cart.items[i]){
+      this.splice(i,1);
+    }
+  }
 };
-
-const CartItem = function(product, quantity) {
-  this.product = product;
-  this.quantity = quantity;
-};
-
-// Product contructor.
-const Product = function(filePath, name) {
-  this.filePath = filePath;
-  this.name = name;
-  Product.allProducts.push(this);
-};
-Product.allProducts = [];
 
 function generateCatalog() {
   new Product('assets/bag.jpg', 'Bag');
